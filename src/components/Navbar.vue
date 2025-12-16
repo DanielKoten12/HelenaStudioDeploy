@@ -67,65 +67,58 @@
       </div>
 
       <!-- Mobile Navigation -->
-      <div v-if="mobileMenuOpen" class="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
-        <div class="flex flex-col gap-4">
-          <router-link 
-            to="/"
-            @click="mobileMenuOpen = false"
-            class="text-left transition-colors"
-            :class="$route.name === 'home' ? 'text-[#B76E79]' : 'text-gray-700'"
-          >
-            Home
-          </router-link>
-          <router-link 
-            to="/treatments"
-            @click="mobileMenuOpen = false"
-            class="text-left transition-colors"
-            :class="$route.name === 'treatments' ? 'text-[#B76E79]' : 'text-gray-700'"
-          >
-            Treatments
-          </router-link>
-          <router-link 
-            to="/about"
-            @click="mobileMenuOpen = false"
-            class="text-left transition-colors"
-            :class="$route.name === 'about' ? 'text-[#B76E79]' : 'text-gray-700'"
-          >
-            About Us
-          </router-link>
-          <router-link 
-            to="/contact"
-            @click="mobileMenuOpen = false"
-            class="text-left transition-colors"
-            :class="$route.name === 'contact' ? 'text-[#B76E79]' : 'text-gray-700'"
-          >
-            Find Us
-          </router-link>
-          <router-link 
-            to="/hairstyle-ai"
-            @click="mobileMenuOpen = false"
-            class="text-left transition-colors font-semibold"
-            :class="$route.name === 'hairstyle-ai' ? 'text-[#B76E79]' : 'text-gray-700'"
-          >
-            Hairstyle AI
-          </router-link>
-          <router-link 
-            to="/CV"
-            @click="mobileMenuOpen = false"
-            class="text-left transition-colors font-semibold"
-            :class="$route.name === 'hairstyle-ai' ? 'text-[#B76E79]' : 'text-gray-700'"
-          >
-            CV
-          </router-link>
-          <button 
-            @click="handleBookNow(); mobileMenuOpen = false"
-            class="rounded-full w-full h-10 text-white hover:opacity-90 transition-opacity"
-            style="background-color: #B76E79"
-          >
-            Pesan Sekarang
-          </button>
+      <Transition
+        enter-active-class="transition-all duration-300 ease-out"
+        enter-from-class="opacity-0 -translate-y-2 max-h-0"
+        enter-to-class="opacity-100 translate-y-0 max-h-96"
+        leave-active-class="transition-all duration-200 ease-in"
+        leave-from-class="opacity-100 translate-y-0 max-h-96"
+        leave-to-class="opacity-0 -translate-y-2 max-h-0"
+      >
+        <div v-if="mobileMenuOpen" class="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4 overflow-hidden">
+          <div class="flex flex-col gap-4">
+            <router-link 
+              to="/"
+              @click="mobileMenuOpen = false"
+              class="text-left transition-colors hover:translate-x-1 transition-transform"
+              :class="$route.name === 'home' ? 'text-[#B76E79]' : 'text-gray-700'"
+            >
+              Home
+            </router-link>
+            <router-link 
+              to="/treatments"
+              @click="mobileMenuOpen = false"
+              class="text-left transition-colors hover:translate-x-1 transition-transform"
+              :class="$route.name === 'treatments' ? 'text-[#B76E79]' : 'text-gray-700'"
+            >
+              Treatments
+            </router-link>
+            <router-link 
+              to="/about"
+              @click="mobileMenuOpen = false"
+              class="text-left transition-colors hover:translate-x-1 transition-transform"
+              :class="$route.name === 'about' ? 'text-[#B76E79]' : 'text-gray-700'"
+            >
+              About Us
+            </router-link>
+            <router-link 
+              to="/contact"
+              @click="mobileMenuOpen = false"
+              class="text-left transition-colors hover:translate-x-1 transition-transform"
+              :class="$route.name === 'contact' ? 'text-[#B76E79]' : 'text-gray-700'"
+            >
+              Find Us
+            </router-link>
+            <button 
+              @click="handleBookNow(); mobileMenuOpen = false"
+              class="rounded-full w-full h-10 text-white hover:opacity-90 transition-opacity"
+              style="background-color: #B76E79"
+            >
+              Pesan Sekarang
+            </button>
+          </div>
         </div>
-      </div>
+      </Transition>
     </div>
   </nav>
 
